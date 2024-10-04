@@ -26,26 +26,19 @@ const images = [
 ];
 
 const gallery = document.querySelector(".gallery");
-images.forEach(({ url, alt }) => {
-    const li = document.createElement("li");
-    li.classList.add("gallery-item");
-    const img = document.createElement("img");
-    img.src = url;
-    img.alt = alt;
-    img.width = 400;
-    img.height = 250;
 
-    img.classList.add("gallery-image");
+const galleryItems = images
+  .map(  ({ url, alt }) =>
+      `<li><img src="${url}" alt="${alt}" width="360" height="300"></li>`)
+  .join("");
 
-    li.append(img);
-    gallery.append(li);
-});
+gallery.insertAdjacentHTML('beforeend', galleryItems);
 
 gallery.style.display = 'flex';
-gallery.style.flexDirection = `column`;
+gallery.style.flexWrap = `wrap`;
 gallery.style.justifyContent = 'center';
 gallery.style.alignItems = 'center';
-gallery.style.gap = '30px';
+gallery.style.gap = '24px';
 gallery.style.listStyle = 'none';
 
 

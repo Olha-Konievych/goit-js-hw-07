@@ -8,3 +8,4 @@ sumCategories.forEach(item => {
     console.log(`Category: ${category}`);
     console.log(`Elements: ${elements.length}`);
 })
+
